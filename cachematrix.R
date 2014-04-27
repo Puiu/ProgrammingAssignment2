@@ -6,10 +6,16 @@
 ## Creates a special matrix object that can cache its inverse
 makeCacheMatrix <- function(x = matrix()) {
         
-        ## will use this to store and set the original
+        ## will use this to store and set the inverse
         obj <- NULL 
         
-        getData<- function() x ## returns the original
+        #sets the original matrix
+        setData <- function(y)
+        {
+                x <<- y
+                obj <<- NULL #reset the inverse
+        }
+        getData <- function() x ## returns the original
        
         #sets the inverse to an internal object
         setInverse <- function(s) obj <<- s 
